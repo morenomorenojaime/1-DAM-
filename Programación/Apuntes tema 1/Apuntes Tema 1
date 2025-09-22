@@ -1,0 +1,83 @@
+
+    
+Diferencias de software y Hardware 
+
+Hardware: Es la parte física del ordenador.
+Software: Es la parte digital del ordenador que conecta el hardware.
+
+Como programadores utilizamos el sofware para unir el hardware.
+El código debe ser legible para todos, es recomendable poner notas para orientar al usuario.
+Cada lenguaje de programación es distinto uno del otro.
+Hay varios tipos de lenguajes:
+
+ Alto nivel
+
+ Bajo nivel
+
+Lo que los diferencia es la carcania al lenguaje humano.
+El alto nivel es el más cercano al lenguaje humano, y el de bajo nivel es el más cercano al ordenador, con lo cual es mas dificil de comprender.
+
+Concepto variable 
+
+Una variable es un sitio de mi ordenador donde puedo guardar un valor.
+
+Las variables se componen de :
+
+Nombre
+
+Valor 
+
+Tipo
+
+Las variables se dividen en:
+
+Enteras (Para hacer operaciones matematicas)
+
+String (Para lo demás)
+
+Ejemplo de variables: 
+
+let a = 10
+
+let a = 3.14
+
+Boleanos 
+Son variables que solo tienen dos modos:
+
+True 
+
+False 
+
+Ejemplo:
+
+let MayorDeEdad = true
+
+let MenorDeEdad = false
+
+
+En informárica se empiza a contar desde 0, 0 no es igual a null
+
+null es básicamente vacio.
+
+Declarar variables en Javascript
+
+ var es la manera clasica, pero menos predecible.
+
+ let es la que utilizaremos nosotros y es mas predecible.
+
+ 
+Prompt es una variable que introduce el usuario
+ let nombre = prompt("Introduce tu nombre:")
+    console.log("Hola, " + nombre + "!")
+    alert("Hola " + nombre + ". Buenos dias")
+
+
+El alert es lo que hace que aparezca como un pop up en la página web
+
+Operaciones Aritméticas en JavaScript
+
+
+
+
+
+
