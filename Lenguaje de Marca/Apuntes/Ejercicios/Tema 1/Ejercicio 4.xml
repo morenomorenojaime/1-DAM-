@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<recetas>
+    <receta>
+        <nombre>Alcachofas con carne en salsa</nombre>
+        <ingredientes>
+            <ingrediente>
+                <nombre>Alcachofa</nombre>
+                <peso>1kg</peso>
+            </ingrediente>
+            <ingrediente>
+                <nombre>Carne en salsa</nombre>
+                <peso>5kg</peso>
+            </ingrediente>
+        </ingredientes>
+        <tiempodepreparacion>30 min</tiempodepreparacion>
+    </receta>
+
+    <receta>
+        <nombre>Huevo frito con patatas</nombre>
+            <ingredientes>
+                <ingrediente>
+                    <nombre>Huevos</nombre>
+                    <peso>50g</peso>
+                </ingrediente>
+                <ingrediente>
+                    <nombre>Patatas</nombre>
+                    <peso>300g</peso>
+                </ingrediente>
+            </ingredientes>
+        <tiempodepreparacion>20 min</tiempodepreparacion>
+    </receta>
+</recetas>

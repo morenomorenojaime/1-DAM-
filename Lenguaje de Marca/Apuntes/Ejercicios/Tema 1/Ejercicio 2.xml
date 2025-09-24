@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<alumnos>
+    <alumno>
+        <nombre>Jose</nombre>
+        <apellido>Moreno</apellido>
+        <edad>20</edad>
+        <gmail>joselitomoreno@gmail.com</gmail>
+    </alumno>
+        <alumno>
+        <nombre>Aitana</nombre>
+        <apellido>Matamoros</apellido>
+        <edad>19</edad>
+        <gmail>aitanamatamoros@gmail.com</gmail>
+    </alumno>
+</alumnos>

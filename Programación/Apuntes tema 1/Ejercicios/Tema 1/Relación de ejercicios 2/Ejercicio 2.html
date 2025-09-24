@@ -1,0 +1,25 @@
+<script>
+
+    //Pide al usuario el total de una cuenta y el porcentaje de propina que quiere dejar. Calcula y muestra la propina.
+
+    //Establezco la variable del programa
+
+    let cuenta = parseFloat(prompt("Ingrese la cuenta:"))
+    let porcentaje = parseFloat(prompt("Ingrese el porcentaje de propina deseado:"))
+    let propina = (cuenta * porcentaje / 100)
+
+    // Ahora se pone un console log 
+
+    console.log("Segun los datos ingresados, deberia dejar" + "€" + " " + propina + " " + "de propina")
+
+    // Hay varios fallos, primero, me faltaban los parxeFloat
+    // y segundo que es el fallo de concepto, en la variable "porcentaje"
+    // deberia dividir entre 100 y en la variable "propina" 
+    // osea quedaria la cosa de la siguiente manera
+
+        // let cuenta = parseFloat(prompt("Ingrese la cuenta"))
+        // let procentaje = parseFloat(prompt("Ingrese el porcentaje de propina deseado:"))
+        // let propina = (cuenta * porcentaje)
+        // console.log("Segun los datos ingresados, deberia dejar" + " "+ propina + "€" + " " + "de propina" )
+
+</script>

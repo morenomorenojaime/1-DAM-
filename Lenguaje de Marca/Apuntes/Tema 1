@@ -1,0 +1,10 @@
+Primera Linea opcional pero útil de una página web 
+
+<?xml version="1.0" encoding="UTF-8"?> 
+
+Xml es el lenguaje 
+1.0 es la versión del lenguaje 
+Encoding es el tipo de alfabeto, en este caso el español
+
+El cuerpo se empieza con <raiz> y se cierra con </raiz> 
+El elemento raiz es un componente básico que encapsula a los demás elementos. (Solo hay uno por código)
