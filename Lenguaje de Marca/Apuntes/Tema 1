@@ -8,3 +8,6 @@ Encoding es el tipo de alfabeto, en este caso el español
 
 El cuerpo se empieza con <raiz> y se cierra con </raiz> 
 El elemento raiz es un componente básico que encapsula a los demás elementos. (Solo hay uno por código)
+
+
+DTD 
