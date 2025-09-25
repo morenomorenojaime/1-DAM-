@@ -7,6 +7,15 @@
 
     //Ahora se hacen los if´s
 
-    
+    if (numeroUsuario > 10) {
+        console.log("Ingrese un número de dos cifras");
+} else 
+    if (numeroUsuario <= 10){
+        let digito1 = parseInt(numeroUsuario / 10)
+        let digito2 = numeroUsuario % 10
+        let suma = digito1 + digito2
+        console.log("La suma de los dos digitos del número proporcionado es: " + suma)
+}
+
 
 </script>
