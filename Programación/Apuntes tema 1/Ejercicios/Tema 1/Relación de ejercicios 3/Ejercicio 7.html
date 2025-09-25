@@ -1,0 +1,33 @@
+<script>
+
+    //Pide dos números y una operación (+, -, *, /) e imprime eloperador correspondiente.
+
+    let primernumero = Number(prompt("Ingrese el primer número"))
+    let operador = prompt("Ingrese la operación deseada (+, -, *, /):")
+    let segundonumero = Number(prompt("Ingrese el segundo número:"))
+
+    // Ahora se procede a calcular 
+    //El if que he echo estaba fatal, despues del if, lo que venga viene en parentesis
+    // y el Mikel me ha enseñado lo del if, y un igual logico que es el necesario para esta operación 
+    // es == no uno solo
+
+    if (operador == "+") {
+        let resultado = primernumero + segundonumero
+        console.log("El resultado es: " + resultado)
+}
+    if (operador == "-") {
+        let resultado = primernumero - segundonumero
+        console.log("El resultado es: " + resultado)
+}
+    if (operador == "*") {
+        let resultado = primernumero * segundonumero
+        console.log("El resultado es: " + resultado)
+}
+    if (operador == "/") {
+        let resultado = primernumero / segundonumero
+        console.log("El resultado es: " + resultado)
+}
+
+    //tengo que ponerme a repasar mejor los if´s mirar los ejercicios 
+
+</script>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<!DOCTYPE pokemon [
+    <!ELEMENT pokemon (nombre, tipo, nivel)>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT tipo (#PCDATA)>
+    <!ELEMENT nivel (#PCDATA)>
+]>
+<pokemon>
+    <nombre>Lugia</nombre>
+    <tipo>psíquico/volador</tipo>
+    <nivel>60</nivel>
+</pokemon>
