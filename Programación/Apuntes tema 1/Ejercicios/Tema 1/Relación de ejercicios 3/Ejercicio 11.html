@@ -1,0 +1,33 @@
+<script>
+
+    //Solicita un número del 1 al 7 e imprime el día de la semana correspondiente (1 para lunes, 2 para martes, etc.).
+    //Primero le solicito la información al usuario
+
+    let numerousuario = Number(prompt("Ingrese un número del 1 al 7:"))
+    let mensaje = ""
+
+    // Ya solicitada la información y declarada las variables, procedemos a tratar la info del ususario
+
+    if (numerousuario == "1"){
+        mensaje = "El dia que corresponde a este número es: Lunes"
+    }else if (numerousuario == "2"){
+        mensaje = "El dia que corresponde a este número es: Martes"
+    }else if (numerousuario == "3"){
+        mensaje = "El dia que corresponde a este número es: Miercoles"
+    }else if (numerousuario == "4"){
+        mensaje = "El dia que corresponde a este número es: Jueves"
+    }else if (numerousuario == "5"){
+        mensaje = "El dia que corresponde a este número es: Viernes"
+    }else if (numerousuario == "6"){
+        mensaje = "El dia que corresponde a este número es: Sabado"
+    }else if (numerousuario == "7"){
+        mensaje = "El dia que corresponde a este número es: Domingo"
+    }else if (numerousuario > "7"){
+        mensaje = "Ingrese un número valido"
+    }
+
+    // Ahora se le devuelve la información al user
+
+    console.log(mensaje)
+
+</script>

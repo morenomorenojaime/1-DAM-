@@ -1,0 +1,41 @@
+<script>
+
+    // Pide al usuario su calificación (entre 0 y 100) y devuelve su letra correspondiente:
+    // A (90-100).
+    // B (80-89).
+    // C (70-79).
+    // D (60-69).
+    // F (0-59).
+
+    //Primero se le pide la información al usuario
+
+    let notausuario = Number(prompt("Ingrese su calificación:"))
+    let mensaje = ""
+
+    // Ahora se procede a calcular 
+
+    if (notausuario <= 59) {
+        mensaje = "Su nota es: F"
+    } else if (notausuario <= 69) {
+        mensaje = "Su nota es: D"
+    } else if (notausuario <= 79) {
+        mensaje = "Su nota es: C"
+    } else if (notausuario <= 89) {
+        mensaje = "Su nota es: B"
+    } else if (notausuario <= 100) {
+        mensaje = "Su nota es: A"
+    }
+
+    // Ahora se le devuelce la información al usuario
+
+    console.log(mensaje)
+
+    // Los fallos que he tenido han sido, no tabular bien los else
+    // y lo de tener un unico console.log, lo que tenia que hacer era
+    // crear una variable que se llame "mensaje" y ponerlo tal que asi:
+    // let mensaje = "" ya que estaba declarando las variables en los if´s
+    // y en los if´s no tengo que poner let mensaje, si no mensaje a secas tal que asi:
+    // mensaje = "Su nota es: B"
+    // Esos han sido los fallos 
+
+</script>

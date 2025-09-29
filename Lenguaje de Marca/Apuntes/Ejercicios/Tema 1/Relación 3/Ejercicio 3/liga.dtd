@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE liga [
+    <!ELEMENT liga (entrenador+)>
+    <!ELEMENT entrenador (equipo+)>
+    <!ELEMENT equipo (pokemon+)>
+    <!ELEMENT pokemon (nombre, tipo, nivel)>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT tipo (#PCDATA)>
+    <!ELEMENT nivel (#PCDATA)>
+]>

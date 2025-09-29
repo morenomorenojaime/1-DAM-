@@ -1,0 +1,23 @@
+<script>
+
+    //Pide al usuario las longitudes de los tres lados de un triángulo e indica si es equilátero, isósceles o escaleno.
+    //Ahora procedo a pedirle la información al user
+
+    let primerlado = Number(prompt("Ingrese la longitud del primer lado:"))
+    let segundolado = Number(prompt("Ingrese la longitud del segundo lado:"))
+    let tercerlado = Number(prompt("Ingrese la longitud del tercer lado:"))
+    let mensaje = ""
+
+    // Ahora se trabaja en los datos proporcionados por el user
+
+    if (primerlado == segundolado && segundolado == tercerlado){
+        mensaje = "Su triangulo es equilatero"
+    }else if (primerlado == segundolado || segundolado == tercerlado || primerlado == tercerlado){
+        mensaje = "Su triangulo es isosceles"
+    }else 
+        mensaje = "Su triangulo es escaleno"
+    console.log(mensaje)
+
+    // En este no daba ni una, tengo que repasar ciertos operadores para el examen
+
+</script>
