@@ -1,0 +1,23 @@
+<script>
+
+    //Solicitar un número entero. Mostrar el siguiente número múltiplo de 5 a partir del número.
+
+    //Primero solicitamos la info al usuario y delaramos las variables necesarias para tratar la info luego.
+
+    let  numero = prompt("Ingrese un número: ")
+    let entrada = numero
+    numero = Number(numero)
+
+    numero ++ //Esto suma uno al número
+
+    //Ahora procesamos la información del usuario y le devolvemos el mensaje 
+
+    while (numero%5 != 0){
+        numero ++
+    }
+
+    //Ahora le devolvemos la info al usuario
+
+    console.log("El siguiente número multiplo de 5 despues del " + entrada + " es el " + numero)
+
+</script>
