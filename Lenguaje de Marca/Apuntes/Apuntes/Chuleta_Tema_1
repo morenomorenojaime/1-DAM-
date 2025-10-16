@@ -1,0 +1,211 @@
+1. XML — Estructura y sintaxis básica
+<?xml version="1.0" encoding="UTF-8"?>
+→ Cabecera del documento XML. Indica versión y codificación usada.
+
+<raiz> ... </raiz>
+→ Todo XML debe tener un único elemento raíz que contiene todo.
+💡 Ejemplo:
+<libro>
+  <titulo>1984</titulo>
+  <autor>George Orwell</autor>
+</libro>
+
+<elemento atributo="valor">contenido</elemento>
+→ Elemento con un atributo adicional que describe o califica su contenido.
+💡 Ejemplo:
+<jugador dorsal="10">Messi</jugador>
+
+<elemento />
+→ Elemento vacío (sin contenido ni cierre separado).
+💡 Ejemplo:
+<linea/>
+
+<!-- Comentario -->
+→ Texto ignorado por el procesador XML. Sirve para aclaraciones.
+💡 Ejemplo:
+<!-- Lista de libros de ciencia ficción -->
+
+&nombreEntidad;
+→ Entidad. Sustituye caracteres especiales.
+💡 Ejemplo:
+&lt; → representa el carácter “<”
+
+⚙️ Reglas XML
+→ Un solo elemento raíz.
+→ Etiquetas correctamente cerradas y anidadas.
+→ Atributos entre comillas.
+→ Case-sensitive (mayúsculas importan).
+→ Nombres válidos: empiezan por letra o "_".
+
+
+🧱 2. DTD — Definición de estructura XML
+<!DOCTYPE raiz SYSTEM "estructura.dtd">
+→ Indica que el documento usará una DTD externa.
+💡 Ejemplo:
+<!DOCTYPE biblioteca SYSTEM "libros.dtd">
+
+
+<!ELEMENT raiz (hijo1, hijo2)>
+→ Define los elementos hijos y su orden.
+💡 Ejemplo:
+<!ELEMENT persona (nombre, edad)>
+
+<!ELEMENT nombre (#PCDATA)>
+→ Elemento que contiene solo texto.
+💡 Ejemplo:
+<!ELEMENT titulo (#PCDATA)>
+
+<!ELEMENT lista (item+)>
+→ El símbolo + indica “uno o más elementos item”.
+💡 Ejemplo:
+<!ELEMENT biblioteca (libro+)>
+
+<!ELEMENT lista (item*)>
+→ El símbolo * indica “cero o más elementos item”.
+💡 Ejemplo:
+<!ELEMENT autores (autor*)>
+
+<!ELEMENT lista (item?)>
+→ El símbolo ? indica que el elemento es opcional.
+💡 Ejemplo:
+<!ELEMENT persona (telefono?)>
+
+<!ATTLIST persona id ID #REQUIRED>
+→ Define un atributo obligatorio de tipo ID.
+💡 Ejemplo:
+<!ATTLIST libro codigo ID #REQUIRED>
+
+<!ATTLIST persona sexo (M | F) #IMPLIED>
+→ Atributo con valores limitados opcional.
+💡 Ejemplo:
+<!ATTLIST alumno genero (M | F) #IMPLIED>
+
+<!ATTLIST producto stock CDATA #FIXED "0">
+→ Atributo con valor fijo (no se puede cambiar).
+💡 Ejemplo:
+<!ATTLIST producto stock CDATA #FIXED "0">
+
+<!ENTITY euro "€">
+→ Define una entidad (valor reemplazable).
+💡 Ejemplo:
+Precio: 20&euro;
+
+🧩 Ejemplo completo DTD interno
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE biblioteca [
+  <!ELEMENT biblioteca (libro+)>
+  <!ELEMENT libro (titulo, autor, año)>
+  <!ELEMENT titulo (#PCDATA)>
+  <!ELEMENT autor (#PCDATA)>
+  <!ELEMENT año (#PCDATA)>
+  <!ATTLIST libro id ID #REQUIRED>
+]>
+<biblioteca>
+  <libro id="L1">
+    <titulo>1984</titulo>
+    <autor>George Orwell</autor>
+    <año>1949</año>
+  </libro>
+</biblioteca>
+
+
+→ DTD interno que define estructura y atributo obligatorio.
+
+⚙️ Ocurrencias en DTD
+Símbolo	Significado	Ejemplo
+?	0 o 1 vez	(direccion?)
+*	0 o más veces	(telefono*)
++	1 o más veces	(email+)
+,	Orden estricto	(nombre, apellido)
+`	`	Opción entre varios
+🟦 3. XSD — XML Schema Definition
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+→ Define el esquema XSD y el namespace estándar.
+
+<xs:element name="persona">
+→ Declara un elemento principal.
+
+<xs:complexType> ... </xs:complexType>
+→ Define un tipo complejo (elementos anidados).
+
+<xs:simpleType> ... </xs:simpleType>
+→ Define un tipo simple (texto o valor único).
+
+<xs:sequence> ... </xs:sequence>
+→ Los elementos hijos deben ir en el orden indicado.
+
+<xs:choice> ... </xs:choice>
+→ Se permite solo uno de los elementos listados.
+
+<xs:attribute name="id" type="xs:integer" use="required"/>
+→ Declara un atributo obligatorio entero.
+
+<xs:restriction base="xs:string">
+  <xs:pattern value="\d{4}-\d{2}-\d{2}"/>
+</xs:restriction>
+→ Restringe el formato de texto mediante regex.
+
+<xs:minInclusive value="0"/>
+<xs:maxInclusive value="120"/>
+→ Define valores mínimo y máximo aceptados.
+
+<xs:enumeration value="Activo"/>
+<xs:enumeration value="Inactivo"/>
+→ Lista de valores permitidos (enumeración).
+
+<xs:element name="telefono" minOccurs="0" maxOccurs="3"/>
+→ Elemento opcional que puede aparecer hasta 3 veces.
+
+🧩 Ejemplo completo XSD
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="persona">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="nombre" type="xs:string"/>
+        <xs:element name="edad">
+          <xs:simpleType>
+            <xs:restriction base="xs:integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="120"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="dni" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+
+💡 Valida un XML como:
+
+<persona dni="12345678A">
+  <nombre>Laura</nombre>
+  <edad>25</edad>
+</persona>
+
+⚙️ Tipos de datos más usados (XSD)
+Tipo	Descripción	Ejemplo
+xs:string	Texto	"Hola"
+xs:integer	Número entero	45
+xs:decimal	Decimal	10.5
+xs:boolean	Verdadero/falso	true
+xs:date	Fecha ISO	2025-03-15
+xs:time	Hora	12:30:00
+⚔️ DTD vs XSD
+Característica	DTD	XSD
+Sintaxis XML	❌ No	✅ Sí
+Tipos de datos	❌ Solo texto	✅ Varios tipos
+Regex / patrones	❌ No	✅ Sí
+Namespaces	❌ No	✅ Sí
+Atributos	✅ Sí	✅ Sí
+Complejidad	Sencillo	Avanzado y preciso
+🧠 Consejos de examen
+✅ Cierra todas las etiquetas correctamente.
+✅ Solo un elemento raíz por documento.
+✅ En DTD, recuerda usar +, *, ? según la cantidad.
+✅ En XSD, usa minOccurs / maxOccurs.
+✅ Atributos: #REQUIRED (obligatorio) · #IMPLIED (opcional) · #FIXED (valor fijo).
+✅ XSD valida tipos de datos y patrones; DTD no.
+✅ Nombra bien las etiquetas (sin espacios ni tildes).
+✅ Si dudas, sigue el orden: raíz → elementos → atributos.
