@@ -1,0 +1,666 @@
+🧠 CHULETA COMPLETA DE COMANDOS LINUX MINT
+
+(Basado en documentación oficial GNU/Linux, Ubuntu y tu temario docente)
+
+🧩 1. INTRODUCCIÓN A LA TERMINAL Y EL SHELL
+
+Comando: bash
+Descripción: Inicia una nueva sesión del shell Bash (Bourne Again Shell).
+Ejemplo:
+
+bash
+
+
+Notas: Bash es el intérprete de comandos más común en Linux. Todo lo que tecleas se ejecuta a través de él.
+
+Comando: exit
+Descripción: Cierra la sesión actual de la terminal o de un script.
+Ejemplo:
+
+exit
+
+
+Notas: También sirve para salir de una sesión su o de un script en ejecución.
+
+Comando: clear
+Descripción: Limpia la pantalla de la terminal.
+Ejemplo:
+
+clear
+
+
+Notas: No borra el historial; solo limpia la vista actual.
+
+📂 2. NAVEGACIÓN POR EL SISTEMA DE ARCHIVOS
+
+Comando: pwd (print working directory)
+Descripción: Muestra la ruta completa del directorio actual.
+Ejemplo:
+
+pwd
+# Salida: /home/usuario
+
+
+Comando: cd (change directory)
+Descripción: Cambia de directorio.
+Ejemplos:
+
+cd /home/usuario/documentos   # Ruta absoluta
+cd ..                         # Subir un nivel
+cd ~                          # Ir al directorio personal
+cd -                          # Volver al directorio anterior
+
+
+Notas: Si el directorio no existe, mostrará un error.
+
+Comando: ls (list)
+Descripción: Lista el contenido de un directorio.
+Ejemplos:
+
+ls            # Lista básica
+ls -l         # Lista detallada (permisos, tamaño, fecha)
+ls -a         # Incluye archivos ocultos
+ls -lh        # Tamaños legibles (KB, MB, GB)
+
+
+Notas: Archivos ocultos comienzan con un punto (.).
+
+Comando: tree
+Descripción: Muestra la estructura de directorios en forma de árbol.
+Ejemplo:
+
+tree /home/usuario
+
+
+Notas: Puede requerir instalación previa: sudo apt install tree.
+
+🗂️ 3. GESTIÓN DE ARCHIVOS Y CARPETAS
+
+Comando: mkdir (make directory)
+Descripción: Crea un nuevo directorio.
+Ejemplos:
+
+mkdir nuevo_directorio
+mkdir -p /ruta/completa/subdirectorio  # Crea varios niveles si no existen
+
+
+Comando: rmdir (remove directory)
+Descripción: Elimina un directorio vacío.
+Ejemplo:
+
+rmdir carpeta_vacia
+
+
+Notas: Si tiene contenido, usa rm -r.
+
+Comando: touch
+Descripción: Crea un archivo vacío o actualiza la fecha de modificación.
+Ejemplos:
+
+touch archivo.txt
+touch archivo_existente.txt
+
+
+Comando: cp (copy)
+Descripción: Copia archivos o directorios.
+Ejemplos:
+
+cp archivo.txt /ruta/destino/
+cp -r carpeta1 carpeta2  # Copia recursiva
+cp -p archivo.txt copia.txt  # Mantiene permisos y fechas
+
+
+Comando: mv (move)
+Descripción: Mueve o renombra archivos y directorios.
+Ejemplos:
+
+mv archivo.txt /otra/carpeta/
+mv viejo.txt nuevo.txt
+
+
+Comando: rm (remove)
+Descripción: Elimina archivos o directorios.
+Ejemplos:
+
+rm archivo.txt
+rm -r carpeta  # Elimina recursivamente
+rm -f archivo.txt  # Fuerza sin confirmar
+
+
+⚠️ Cuidado: No hay papelera. Lo borrado con rm no se puede recuperar fácilmente.
+
+📜 4. VISUALIZACIÓN Y EDICIÓN DE ARCHIVOS
+
+Comando: cat (concatenate)
+Descripción: Muestra el contenido completo de uno o varios archivos.
+Ejemplos:
+
+cat archivo.txt
+cat archivo1.txt archivo2.txt > combinado.txt
+
+
+Comando: head
+Descripción: Muestra las primeras líneas de un archivo.
+Ejemplo:
+
+head -n 20 archivo.txt  # Muestra las primeras 20 líneas
+
+
+Comando: tail
+Descripción: Muestra las últimas líneas de un archivo.
+Ejemplo:
+
+tail -n 10 archivo.txt
+tail -f /var/log/syslog  # Monitoriza en tiempo real
+
+
+Comando: less / more
+Descripción: Muestran el contenido de un archivo página por página.
+Ejemplo:
+
+less archivo.txt
+more archivo.txt
+
+
+Notas: Usa las flechas para moverte. Con less, puedes ir hacia arriba y abajo.
+
+Comando: nano
+Descripción: Abre un archivo en el editor de texto “nano”.
+Ejemplo:
+
+nano archivo.txt
+
+
+Atajos comunes dentro de nano:
+
+Ctrl + O: Guardar
+
+Ctrl + X: Salir
+
+Ctrl + K: Cortar línea
+
+Ctrl + U: Pegar línea
+
+Ctrl + W: Buscar texto
+
+🔍 5. BÚSQUEDA DE ARCHIVOS Y CONTENIDO
+
+Comando: find
+Descripción: Busca archivos o directorios según nombre, tamaño o fecha.
+Ejemplos:
+
+find /ruta -name "*.txt"        # Busca por nombre
+find . -type d                  # Solo directorios
+find /home -mtime -7            # Archivos modificados en los últimos 7 días
+find / -size +10M               # Archivos mayores de 10 MB
+
+
+Comando: grep (global regular expression print)
+Descripción: Busca texto dentro de archivos.
+Ejemplos:
+
+grep "error" archivo.log
+grep -i "advertencia" archivo.log   # Ignora mayúsculas/minúsculas
+grep -r "error" /var/log            # Busca recursivamente
+grep -n "palabra" archivo.txt       # Muestra número de línea
+
+🔐 6. PERMISOS Y PROPIEDAD DE ARCHIVOS
+
+Comando: chmod (change mode)
+Descripción: Cambia los permisos de un archivo o carpeta.
+Ejemplos:
+
+chmod 755 script.sh       # rwxr-xr-x
+chmod u+x archivo.sh      # Da permiso de ejecución al usuario
+chmod go-r archivo.txt    # Quita lectura a grupo y otros
+
+
+Notas: Los permisos se expresan en binario (r=4, w=2, x=1).
+
+Comando: chown (change owner)
+Descripción: Cambia el propietario y grupo de un archivo.
+Ejemplo:
+
+chown usuario:grupo archivo.txt
+
+
+Comando: chgrp (change group)
+Descripción: Cambia el grupo propietario del archivo.
+Ejemplo:
+
+chgrp administradores archivo.txt
+
+👤 7. USUARIOS, GRUPOS Y SUPERUSUARIO
+
+Comando: whoami
+Descripción: Muestra el nombre del usuario actual.
+Ejemplo:
+
+whoami
+
+
+Comando: sudo (superuser do)
+Descripción: Ejecuta un comando con privilegios de superusuario (root).
+Ejemplo:
+
+sudo apt update
+
+
+Notas: Pide la contraseña del usuario con permisos sudoers.
+
+Comando: su (substitute user)
+Descripción: Cambia al usuario root o a otro usuario.
+Ejemplos:
+
+su                # Cambiar a root
+su nombre_usuario # Cambiar a otro usuario
+
+
+Comando: passwd
+Descripción: Cambia la contraseña del usuario actual o de otro usuario (con sudo).
+Ejemplo:
+
+passwd
+sudo passwd usuario
+
+
+Comando: adduser
+Descripción: Crea un nuevo usuario con su directorio home.
+Ejemplo:
+
+sudo adduser nuevo_usuario
+
+
+Comando: deluser
+Descripción: Elimina un usuario del sistema.
+Ejemplo:
+
+sudo deluser usuario
+
+⚙️ 8. COMANDOS EXTRA ÚTILES EN EXAMEN
+
+Comando: man comando
+Descripción: Muestra el manual oficial de un comando.
+Ejemplo:
+
+man ls
+
+
+Comando: --help
+Descripción: Muestra la ayuda rápida de un comando.
+Ejemplo:
+
+ls --help
+
+
+Comando: history
+Descripción: Muestra el historial de comandos ejecutados.
+Ejemplo:
+
+history
+!45    # Ejecuta el comando número 45 del historial
+
+
+Comando: hostname
+Descripción: Muestra el nombre del equipo.
+Ejemplo:
+
+hostname
+
+
+Comando: date
+Descripción: Muestra la fecha y hora actual del sistema.
+Ejemplo:
+
+date
+
+
+Comando: uptime
+Descripción: Muestra cuánto tiempo lleva encendido el sistema.
+Ejemplo:
+
+uptime
+
+
+Comando: df -h
+Descripción: Muestra el uso del espacio en disco en formato legible.
+Ejemplo:
+
+df -h
+
+
+Comando: du -h
+Descripción: Muestra el tamaño de archivos y carpetas.
+Ejemplo:
+
+du -h carpeta/
+
+
+Comando: top / htop
+Descripción: Muestra los procesos activos en tiempo real.
+Ejemplo:
+
+top
+htop
+
+
+Notas: htop es más visual, pero puede requerir instalación (sudo apt install htop).
+
+✅ CONSEJO FINAL DE EXAMEN
+
+Usa man y --help si olvidas la sintaxis.
+
+Recuerda: no hay deshacer en rm, usa -i para confirmar antes de borrar.
+
+Los comandos pueden combinarse con tuberías | y redirecciones > o >>.
+Ejemplo:
+
+ls -l | grep ".txt" > lista_txt.txt
+
+
+→ Lista solo los .txt y los guarda en un archivo.
+
+🔸 1. Redirección de entrada y salida
+>
+
+Redirige la salida de un comando a un archivo (sobrescribe el contenido).
+
+echo "Hola mundo" > saludo.txt
+
+
+👉 Crea o sobrescribe saludo.txt con el texto “Hola mundo”.
+
+>>
+
+Redirige la salida de un comando y la añade al final del archivo (no borra lo anterior).
+
+echo "Nueva línea" >> saludo.txt
+
+
+👉 Añade “Nueva línea” al final del archivo existente.
+
+<
+
+Redirige la entrada de un comando desde un archivo.
+
+cat < saludo.txt
+
+
+👉 Le dice a cat que lea desde saludo.txt (igual que cat saludo.txt).
+
+2>
+
+Redirige solo los mensajes de error (stderr) a un archivo.
+
+ls carpeta_que_no_existe 2> errores.txt
+
+
+👉 Guarda el mensaje de error en errores.txt.
+
+&>
+
+Redirige tanto la salida normal como los errores al mismo archivo.
+
+comando &> salida.txt
+
+
+👉 Guarda todo (éxito + errores) en salida.txt.
+
+|
+
+Pasa la salida de un comando como entrada al siguiente (“pipe” o tubería).
+
+ls -l | grep ".txt"
+
+
+👉 Muestra solo los archivos .txt del listado.
+
+tee
+
+Guarda la salida en un archivo y la muestra en pantalla al mismo tiempo.
+
+ls -l | tee lista.txt
+
+
+👉 Guarda la lista en lista.txt y la muestra en pantalla.
+
+🔸 2. Operadores lógicos entre comandos
+;
+
+Ejecuta varios comandos uno tras otro, sin importar si fallan.
+
+mkdir nueva; cd nueva; touch hola.txt
+
+
+👉 Ejecuta los tres comandos seguidos, aunque alguno falle.
+
+&&
+
+Ejecuta el segundo comando solo si el primero tuvo éxito (sin errores).
+
+mkdir proyectos && cd proyectos
+
+
+👉 Cambia a la carpeta solo si se creó correctamente.
+
+||
+
+Ejecuta el segundo comando solo si el primero falla.
+
+cd carpeta_inexistente || echo "La carpeta no existe"
+
+
+👉 Si cd falla, muestra el mensaje.
+
+Combinación && y ||
+
+Permite crear estructuras condicionales tipo “if-else” en una línea.
+
+test -f archivo.txt && echo "Existe" || echo "No existe"
+
+
+👉 Muestra “Existe” si el archivo está, o “No existe” si no.
+
+🔸 3. Comandos combinados de búsqueda y manipulación
+Buscar y eliminar archivos
+find . -name "*.bak" -delete
+
+
+👉 Busca todos los .bak y los elimina.
+
+Buscar archivos y ejecutar una acción
+find . -name "*.log" -exec rm {} \;
+
+
+👉 Busca todos los .log y los borra uno por uno.
+
+Buscar archivos y moverlos
+find . -name "*.jpg" -exec mv {} /home/usuario/imagenes/ \;
+
+
+👉 Encuentra imágenes .jpg y las mueve a la carpeta destino.
+
+🔸 4. Filtros y procesamiento de texto
+grep
+
+Busca texto dentro de una salida o archivo.
+
+ps aux | grep firefox
+
+
+👉 Muestra los procesos que contienen la palabra “firefox”.
+
+sort
+
+Ordena líneas alfabéticamente o numéricamente.
+
+sort lista.txt
+
+
+👉 Ordena el contenido del archivo lista.txt.
+
+uniq
+
+Elimina líneas duplicadas (útil tras un sort).
+
+sort usuarios.txt | uniq
+
+
+👉 Muestra solo líneas únicas del archivo.
+
+wc
+
+Cuenta líneas, palabras y caracteres.
+
+cat archivo.txt | wc -l
+
+
+👉 Cuenta cuántas líneas tiene el archivo.
+
+cut
+
+Extrae columnas o campos específicos de texto.
+
+cut -d: -f1 /etc/passwd
+
+
+👉 Muestra solo los nombres de usuario del sistema.
+
+tr
+
+Sustituye o elimina caracteres.
+
+cat archivo.txt | tr 'a-z' 'A-Z'
+
+
+👉 Convierte todo el texto a mayúsculas.
+
+awk
+
+Procesa y filtra texto por columnas.
+
+awk '{print $1, $3}' archivo.txt
+
+
+👉 Muestra la 1ª y 3ª columna de cada línea.
+
+sed
+
+Editor de texto en línea (sustituciones y modificaciones).
+
+sed 's/error/aviso/g' log.txt
+
+
+👉 Sustituye “error” por “aviso” en todo el archivo.
+
+🔸 5. Gestión avanzada de salida
+xargs
+
+Toma una lista de argumentos y los pasa a otro comando.
+
+find . -name "*.tmp" | xargs rm
+
+
+👉 Borra todos los archivos .tmp encontrados.
+
+> junto con |
+
+Combina redirección y tuberías.
+
+grep "ERROR" *.log | sort > errores_ordenados.txt
+
+
+👉 Busca “ERROR” en todos los logs, los ordena y guarda en un archivo.
+
+ls | less
+
+Muestra resultados largos en formato paginado.
+
+ls -l /etc | less
+
+
+👉 Permite desplazarte con las flechas.
+
+🔸 6. Operadores de fondo y prioridad
+&
+
+Ejecuta un comando en segundo plano.
+
+firefox &
+
+
+👉 Abre Firefox sin bloquear la terminal.
+
+jobs
+
+Lista los procesos que se están ejecutando en segundo plano.
+
+jobs
+
+fg
+
+Trae un proceso del fondo al primer plano.
+
+fg %1
+
+bg
+
+Reanuda un proceso detenido en segundo plano.
+
+bg %1
+
+nice / renice
+
+Ejecuta un proceso con prioridad ajustada.
+
+nice -n 10 script.sh
+renice 5 -p 1234
+
+
+👉 Cambia la prioridad de CPU de procesos.
+
+🔸 7. Combinaciones con permisos y administración
+Crear un archivo y darle permisos
+touch script.sh && chmod +x script.sh
+
+
+👉 Crea el archivo y le da permiso de ejecución.
+
+Editar un archivo protegido
+sudo nano /etc/hosts
+
+
+👉 Abre el archivo con permisos de administrador.
+
+Copiar y conservar permisos
+sudo cp -p archivo.conf /etc/
+
+
+👉 Copia manteniendo permisos y propietarios.
+
+Comando condicional con privilegios
+test -d /etc && echo "Existe" || sudo mkdir /etc
+
+
+👉 Si no existe la carpeta /etc, la crea con permisos de superusuario.
+
+🔸 8. Redirección combinada de salida y error
+comando > salida.txt 2> errores.txt
+
+
+👉 Separa salida normal y errores en distintos archivos.
+
+comando >> todo.txt 2>&1
+
+
+👉 Añade tanto salida como errores al mismo archivo.
+
+✅ CONSEJO FINAL DE EXAMEN
+
+Usa pipes (|) para combinar comandos que producen y consumen texto.
+
+Usa redirección (>, >>) para guardar resultados.
+
+Usa && y || para ejecutar condicionalmente.
+
+Combina find, grep, awk y sed para búsquedas potentes.

@@ -118,6 +118,7 @@ Símbolo	Significado	Ejemplo
 +	1 o más veces	(email+)
 ,	Orden estricto	(nombre, apellido)
 `	`	Opción entre varios
+
 🟦 3. XSD — XML Schema Definition
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 → Define el esquema XSD y el namespace estándar.
