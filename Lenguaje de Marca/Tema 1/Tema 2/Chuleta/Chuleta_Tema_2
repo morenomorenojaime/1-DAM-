@@ -1,0 +1,185 @@
+Chuleta tema 2
+
+Básicos del html
+
+<!DOCTYPE html>
+    Asi se empieza un documento 
+
+<html lang="es"> </html>
+    Este codigo se divide en dos portes
+        Primero "<html>" que abre la etiqueta donde se alojara todo el código
+        Segundda "lang="es"" que indica el idioma
+
+<head></head>
+    Representa la información sobre la pagina web.
+
+        <title></title>
+            Se utilizan para dar nombre a tu pagina web y esta localizado dentro "<head></head>"
+            Ejemplo:
+                <title>Mi primera página web</title>
+
+<body></body>
+    En esta parte del código se dedica para mostrar la info al user
+
+        <h1></h1>
+            Se utiliza para el titulo principal de la página web.
+            Solo hay un <h1></h1> por pagina web
+            Ejemplo:
+                <h1>Me gusta la pizza!</h1>
+        <h2></h2>
+        <h3></h3>
+        <h4></h4>
+        <h5></h5>
+        <h6></h6>
+            Se utilizan como titulos secundarios de la página web, puede haber varios por pagina web
+            Cada número lo hace mas pequeño, siendo el <h2></h2> eel mas grande y el <h6></h6> el mas grande 
+            Ejemplo:
+                <h2>Me gusta la pizza!</h2>
+                <h3>Me gusta la pizza!</h3>
+                <h4>Me gusta la pizza!</h4>
+                <h5>Me gusta la pizza!</h5>
+                <h6>Me gusta la pizza!</h6>
+        <p></p>
+            Se refiere a párrafo y aqui podemos escribir libremente
+            Ejemplo:
+                  <p>Esto es un ejemplo de párrafo en HTML</p>
+        <br>
+            Crea un espacio entre dos párrafos o titulos
+            !Solo necesita una etiqueta de apertura para funcionar
+            Ejemplo:
+                <h2>Me gusta la pizza!</h2>
+                <br>
+                <p>Esto es un ejemplo de párrafo en HTML</p>
+        <hr>
+            Crea una barra horizontal para dividir la pagina web
+            !Solo necesita una etiqueta de apertura para funcionar.
+             Ejemplo:
+                <h2>Me gusta la pizza!</h2>
+                <hr>
+                <p>Esto es un ejemplo de párrafo en HTML</p>
+        <!-- -->
+            Se utiliza para dejar comentarios 
+            Ejemplo:
+                <!-- Esta parte del código sirve para dejar comentarios a otros desarrolladores -->
+
+Ejemplo de estructura muy básica de HTML
+        
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Mi primera página web</title>
+    </head>
+    <body>
+        <h1>Mi primera página web</h1>
+        <hr>
+        <p>Este es un ejemplo muy básico de estructura html</p>
+        <h2>Este es un titulo secundario</h2>
+        <br>
+        <p>Este es un texto de relleno</p>
+        <!--Esta página web esta guapa en verdad-->
+    </body>
+</html>
+
+Hyperenlaces
+
+    <a></a>
+        Significa ancla y es la parte de texto del Hyperlinks
+        Ejemplo:
+            <a>Click me</a>
+        href=""
+            Es un atributo que se coloca dentro de <a></a> para modificar el comportamiento de un elemento
+            Dentro de las comillas podemos hacer referencia a otra página web/archivo donde nos llevara
+            Ejemplos:
+                Ejemplo de página web externa 
+                    <a href="google.com">Google</a>
+                Ejemplo de archivo local:
+                    <a href="Ejercicio_3.html">Ejercicio</a>
+        target=""
+            Es otro atributo que se puede colocar dentro de <a></a>
+            Se utiliza para saber como abrir el hyperenlace
+            Ejemplo:
+                Ejemplo para que se abra en una nueva pestaña en blanco:
+                    <a href="google.com" target="_blank">Google</a>
+                Ejemplo para abrir en la misma ventana:
+                    <a href="google.com" target="_self">Google</a>
+        title=""
+            Eso un atributo que sirve para mostar información adicional sobre el elemento
+            Ejemplo:
+                <a href="google.com" target="_blank" title="Te redirige a google">Google</a>
+
+    Ejemplo de estructura de hypernlace en una pagina web
+
+    <!DOCTYPE html>
+    <html lang="es">
+        <head>
+            <title>Mi primera página web</title>
+        </head>
+        <body>
+            <h1>Mi primera página web</h1>
+            <a href="https://www.google.com/?hl=es" target="_blank" title="Te redirige a google">Google</a>
+            <!--Esta página web esta guapa en verdad-->
+        </body>
+    </html>
+
+    Ejemplo de estructura de un hyperenlace para que nos lleve a otro archivo
+
+        !Cosas a tener en cuenta
+        El archivo al que queremos dirigirnos debe de estar en la misma carpeta de proyecto de la pagina web
+
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <title>Mi primera página web</title>
+        </head>
+        <body>
+            <h1>Mi primera página web</h1>
+            <a href="chuleta.html" target="_blank" title="Te redirige a la chuleta del examen">Chuleta de lenguaje de marcas</a>
+            <!--Esta página web esta guapa en verdad-->
+        </body>
+        </html>
+
+Imagenes en html
+
+    !Primero que nada la imagen tiene que estar descargada y en la carpeta del proyecto para poder mostrarla de manera correcta
+    !La etiqueta <img> no se cierra solol tiene entrada
+    
+    <img src="">
+        Este código se divide en dos partes:
+            Primero <img></img>:
+                img = Imagene
+            Segundo src="":
+                Se viene a referir a source (Que significa fuente en ingles).
+                Dentro de las "" tenemos que poner el nombre del archivo junto a su extensión
+        Ejemplo:
+            <img src="dog.png">
+        height=""
+            Cambia la altura de la imagen.
+            Ejemplo:
+                <img src="dog.png" height="200">
+        width=""
+            Cambia el ancho de la imagen, y se suele utilizar con height="" para determinar el tamaño exacto de la imagen.
+            Ejemplo:
+                <img src="dog.png" height="200" width="200"> (Así quedaria un cuadrado perfecto)
+        alt=""
+            Se utiliza para dar una descripción de las imagenes por si no carga y/o para las personas ciegas les describe la imagen
+            Ejemplo:
+                <img src="dog.png" alt="Esta es la imagen de un bonito perro" height="200" width="200">
+
+    Imágenes con hyperenlaces 
+        Es una mezcla de las dos cosas entes mencionadas 
+        Ejemplo:
+        <a href="https://www.google.com/?hl=es" target="_blank" title="Te redirige a google">
+            <img src="dog.png" alt="Esta es la imagen de un bonito perro" height="200" width="200">
+        </a>
+    Gif´s en html
+        Un gif es un pequeño videos de que reproduce en bucle y podemos añadir a nuestra pagina web.
+        Como ha sido anteriormente mencionado, el gif tiene que encontrarse en la carpeta de nuestro proyecto
+        Ejemplo:
+            <img src="dog.gif" alt="Este es un gfi de un bonito perro sonrriente" height="200" width="200">
+    Imagenes fuera de la carpeta del proyecto
+        Imagina, que por algun motivo, creamos dentro del repositorio, una carpeta que se llame imagenes,
+        y metemos otdas las imagenes, todas las imagenes con  el codigo de antes, dejaran de mostrarse y solo se vera el texto alternativo,
+        para arreglar esto debemos de añadir la nueva ruta del archivo.
+        Ejemplo:
+            <img src="/imagenes/dog.png" alt="Esta es la imagen de un bonito perro" height="200" width="200"> (Así la foto volveria a ser visible)
+    
