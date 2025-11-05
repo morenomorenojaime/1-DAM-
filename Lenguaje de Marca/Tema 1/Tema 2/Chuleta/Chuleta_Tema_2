@@ -2,6 +2,28 @@ Chuleta tema 2
 
 Básicos del html
 
+Principales etiquetas:
+
+<!DOCTYPE html> → indica que el documento usa HTML5.
+
+<html lang="en"></html> → elemento raíz. Atributo lang="es" especifica el idioma.
+
+<head></head> → contiene metadatos (título, charset, CSS, descripción).
+
+<meta charset="UTF-8"> → evita errores de caracteres.
+
+<meta name="viewport"> → esencial para diseño responsive.
+
+<link></link> → enlaza hojas de estilo, fuentes, iconos, etc.
+
+<body></body> → contiene todo el contenido visible.
+
+<header></header> → parte superior (logo, menú, título).
+
+<main></main> → contenido principal de la página.
+
+<footer></footer> → pie de página (copyright, contacto…).
+
 <!DOCTYPE html>
     Asi se empieza un documento 
 
@@ -182,4 +204,104 @@ Imagenes en html
         para arreglar esto debemos de añadir la nueva ruta del archivo.
         Ejemplo:
             <img src="/imagenes/dog.png" alt="Esta es la imagen de un bonito perro" height="200" width="200"> (Así la foto volveria a ser visible)
+
+Videos en HTML
+
+        ! Solo se pueden utilizar formatos .mp4 .webm .ogg y como en las fotos tiene que estar en la misma carpeta que el proyecto.
+
+        <video></video>
+            Es para indicar que es un video, dentro llevara como en imagenes más atributos.
+            Esta etiqueta a diferencia de las imagenes, tiene una etiqueta de cierre.
+
+            src=""
+                Aqui pones el nombre del archivo del video, ya que necesitamos que este dentro de la carpeta.
+                Ejemplo:
+                    <video src="zelda.mp4"></video>
+            width="" 
+                Cambia el ancho de la imagen, y se suele utilizar con height="" para determinar el tamaño exacto de la imagen.
+                Ejemplo:
+                    <video src="zelda.mp4" width="200"></video> 
+            height=""
+                Cambia la altura de la imagen.
+                Si solo pones la altura, el ancho se adapptara automáticamente al cambio.
+                Ejemplo:
+                    <video src="zelda.mp4" height="200" width="200"></video> (Así seria un cuadrado perfecto)
+            controls
+                Se utiliza simplemente para que puedas ver el video.
+                Ejemplo:
+                    <video src="zelda.mp4" height="200" width="200" controls></video>
+            autoplay
+                Va despues de controls y sirve para cuando cargue la página, reproducir el video.
+                Ejemplo:
+                    <video src="zelda.mp4" height="200" width="200" controls autoplay></video>
+            muted
+                Se utiliza para cuando pones autoplay, que el video se inicie sin sonido, para no molestar al user.
+                Ejemplo:
+                <video src="zelda.mp4" height="200" width="200" controls autoplay muted></video>
+            loop
+                Se utiliza para hacer infinitos los videos.
+                Ejemplo:
+                    <video src="zelda.mp4" height="200" width="200" controls autoplay loop></video>
+
+Secciones y enlaces 
+
+        <section></section>
+            Se usa para declarar una sección.
+            Ejemplo:
+                <section></section>
+            id=""
+                Se utiliza para darle nombre a la sección y poder ser utilizado en enlaces.
+                Ejemplo:
+                    <section id="Inicio"></section>
+            
+        Para poner èl menú que te lleva a distntas partes de la página web intervienen varios comandos
+
+        <nav></nav>
+        Sirve para agrupar los enlaces principales de un sitio web, como el menú de inicio, contacto, servicios, etc.ç
+        Ejemplo:
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="about.html">Sobre nosotros</a></li>
+                    <li><a href="services.html">Servicios</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+        <ul></ul>
+            Sirve para crear listas de elementos donde el orden no importa, y los ítems aparecen normalmente con viñetas (•).
+
+        <li></li>
+            Define cada elemento de la lista.
+
+ESTRUCTURA BÁSICA PARA COPIAR Y PEGAR EN EL EXAMEN 
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gasolinera La Ruta</title>
+    </head>
+    <body>
+        <header>
+            <section id="inicio">
+            <h1>Gasolinera La Ruta</h1>
+            <hr>
+            <nav><ul><a href="">Inicio</a></ul></nav>
+            <nav><ul><a href="">Servicio</a></ul></nav>
+            <nav><ul><a href="">Promociones</a></ul></nav>
+            <nav><ul><a href="">Contacto</a></ul></nav>
+            </section>
+            </header>
+            <main>
+            
+            </main>
+        <footer>
+            <p>Derechos reservados © 2024 Gasolinera La Ruta</p>
+            <a href="mailto:gasolineraLaRuta@soporte.com">Contacto</a>
+        </footer>
+    </body>
+    
+</html>
     
