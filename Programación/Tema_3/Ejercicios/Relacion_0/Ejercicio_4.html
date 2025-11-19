@@ -1,0 +1,25 @@
+<script>
+
+    //Crea una función llamada esPar que reciba un número y devuelva true si es par o false si es impar.
+
+    function par (esPar,divisor){
+        return esPar%divisor
+    }
+
+
+
+    //--------------------------------------------------------------------------MAIN------------------------------------------------
+
+    let esPar = Number(prompt("Ingrese un número: "))
+    const divisor = 2
+    let resultado = par(esPar,divisor)
+
+    if (esPar%2 == 0){
+        console.log("True")
+    }else if(esPar%2 != 0){
+        console.log("False")
+    }
+    
+    
+
+</script>

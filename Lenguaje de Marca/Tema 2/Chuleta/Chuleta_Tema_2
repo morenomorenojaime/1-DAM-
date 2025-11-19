@@ -304,4 +304,175 @@ ESTRUCTURA BÁSICA PARA COPIAR Y PEGAR EN EL EXAMEN
     </body>
     
 </html>
-    
+
+RESUMEN DE CHAT GPT 
+
+🧩 Unidad Didáctica 2 – Introducción a HTML
+1. Introducción a HTML
+
+HTML (HyperText Markup Language) es el lenguaje usado para estructurar el contenido web.
+
+Creado por Tim Berners-Lee (1989) para enlazar documentos mediante hipervínculos.
+
+Es la base de toda página web, interpretada por los navegadores.
+
+Evolución de HTML
+Versión	Año	Características principales
+HTML 1.0	1991	Muy básico, solo 18 etiquetas.
+HTML 2.0	1995	Primer estándar; añade formularios.
+HTML 3.2	1997	Soporte para tablas, scripts e imágenes.
+HTML 4.01	1999	Separa estructura y diseño (introduce CSS).
+XHTML 1.0	2000	Basado en XML, más estricto.
+HTML5	2014	Soporte nativo para video, audio, APIs, canvas, y adaptabilidad móvil.
+
+🔹 HTML5 es el estándar actual: semántico, accesible y optimizado para multimedia y móviles.
+
+1.2. Estructura básica de un documento HTML
+
+Todo documento HTML sigue una jerarquía con etiquetas clave:
+
+<!DOCTYPE html>
+<html lang="es">
+  <head> ... </head>
+  <body> ... </body>
+</html>
+
+Principales etiquetas:
+
+<!DOCTYPE html> → indica que se usa HTML5.
+
+<html> → elemento raíz; incluye atributo lang.
+
+<head> → contiene metadatos (no visibles).
+
+<meta charset="UTF-8"> → define la codificación.
+
+<meta name="viewport"> → hace la página responsiva.
+
+<link> → conecta archivos externos (como CSS).
+
+<body> → contiene el contenido visible.
+
+<header>, <main>, <footer> → definen secciones principales.
+
+1.3. Importancia de las etiquetas HTML
+
+    Estructuran el contenido de forma lógica y jerárquica.
+
+    Semántica: etiquetas como <article>, <section>, <nav> mejoran accesibilidad y SEO.
+
+    SEO: motores de búsqueda usan la estructura y encabezados para clasificar contenido.
+
+    Accesibilidad: ayudan a lectores de pantalla a interpretar la página.
+
+    Interactividad: etiquetas como <form>, <button> permiten interacción con el usuario.
+
+2. Etiquetas de Estructura del Documento
+2.1. <!DOCTYPE html>
+
+    Declara el tipo de documento (HTML5).
+
+    Evita el modo quirks (errores de compatibilidad en navegadores).
+
+    2.2. <html>
+
+    Contenedor raíz del documento.
+
+    Usa lang="es" para indicar idioma (importante para SEO y accesibilidad).
+
+2.3. <head>
+
+    Contiene metadatos, como codificación, descripción y enlaces externos.
+
+    Ejemplo:
+
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi página web</title>
+    </head>
+
+2.4. <title>
+
+    Define el título que aparece en la pestaña del navegador y en los resultados de búsqueda.
+
+    Debe ser claro y contener palabras clave.
+
+2.5. <meta>
+
+    Añade metadatos sobre la página:
+
+    description → resumen para buscadores.
+
+    author → autor del documento.
+
+    keywords → palabras clave (ya en desuso).
+
+    viewport → diseño adaptable.
+
+3. El Cuerpo del Documento HTML
+3.1. <body>
+
+    Contiene todo el contenido visible e interactivo de la página.
+
+    Se recomienda usar etiquetas semánticas:
+
+    <header>Encabezado</header>
+    <nav>Menú</nav>
+    <main>
+    <section>Contenido principal</section>
+    </main>
+    <footer>Pie de página</footer>
+
+4. Etiquetas de Formato de Texto
+    Etiqueta	Función	Ejemplo
+    <h1> a <h6>	Encabezados jerárquicos	<h1>Título</h1>
+    <p>	Párrafo	<p>Texto...</p>
+    <a>	Enlace	<a href="url">Ir</a>
+    <b> / <strong>	Negrita (visual / semántica)	<strong>Importante</strong>
+    <i> / <em>	Cursiva (visual / énfasis)	<em>Énfasis</em>
+    <blockquote>	Cita larga	<blockquote>"Texto citado"</blockquote>
+    <br>	Salto de línea	Primera<br>Segunda
+    <hr>	Línea horizontal	<hr>
+5. Etiquetas de Enlaces y Multimedia
+5.1. <img> – Imágenes
+
+    Inserta imágenes:
+
+    <img src="foto.jpg" alt="Descripción" width="600" height="400">
+
+
+Atributos:
+
+    src → ruta de la imagen.
+
+    alt → texto alternativo (accesibilidad).
+
+    width / height → tamaño.
+
+    Se recomienda optimizar imágenes y usar versiones adaptativas (srcset, <picture>).
+
+5.2. <figure> y <figcaption>
+
+    Agrupan imágenes con su descripción:
+
+    <figure>
+    <img src="foto.jpg" alt="Descripción">
+    <figcaption>Leyenda de la imagen</figcaption>
+    </figure>
+
+5.3. <a> – Enlaces
+
+    Crea vínculos a otras páginas o archivos.
+
+    <a href="https://www.ejemplo.com" target="_blank">Visita mi sitio</a>
+
+
+    Variantes:
+
+    Enlace interno: <a href="#seccion1">Ir</a>
+
+    Correo: <a href="mailto:info@ejemplo.com">Contactar</a>
+
+    Descarga: <a href="archivo.pdf" download>Descargar</a>
+
