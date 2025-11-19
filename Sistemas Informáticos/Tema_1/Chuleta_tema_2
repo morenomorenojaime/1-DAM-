@@ -1,0 +1,254 @@
+2.1. PERMISOS Y PROPIEDAD DE ARCHIVOS
+Conceptos básicos
+
+En Linux, cada archivo tiene 3 tipos de permisos aplicados sobre 3 entidades.
+
+Permisos
+
+r → lectura
+
+w → escritura
+
+x → ejecución
+
+Entidades
+
+u → usuario propietario
+
+g → grupo
+
+o → otros
+
+a → todos
+
+Ver permisos
+ls -l
+
+Cambiar permisos (chmod)
+Modo simbólico
+chmod u+x archivo.sh
+chmod g-w archivo.txt
+chmod a=r archivo.conf
+
+Modo numérico
+
+4 = r
+2 = w
+1 = x
+
+Ejemplos:
+
+chmod 755 archivo.txt   # rwxr-xr-x
+chmod 644 documento.txt # rw-r--r--
+
+Cambiar propietario (chown)
+chown carlos archivo.txt
+chown carlos:desarrollo proyecto.zip
+
+Cambiar grupo (chgrp)
+chgrp marketing informe.doc
+
+2.2. GESTIÓN DE USUARIOS
+2.2.1. Crear usuarios
+adduser
+adduser juan
+adduser --home /opt/usuarios/juan juan
+adduser --shell /bin/bash juan
+adduser --ingroup desarrolladores juan
+
+2.2.2. Eliminar usuarios
+deluser juan
+deluser --remove-home juan
+deluser --remove-all-files juan
+deluser --backup juan
+
+2.2.3. Modificar usuarios (usermod)
+usermod -l nuevo_nombre antiguo
+usermod -d /ruta/nueva juan
+usermod -g administradores juan
+usermod -aG sudo juan
+usermod -L juan   # bloquear
+usermod -U juan   # desbloquear
+usermod -s /bin/zsh juan
+
+2.2.4. Ver información del usuario
+whoami
+id
+id juan
+
+2.2.5. Archivos de configuración
+
+Archivos clave:
+
+/etc/passwd
+/etc/group
+/etc/shadow
+
+2.3. GESTIÓN DE GRUPOS
+Crear grupos
+groupadd tecnicos
+groupadd -g 1500 desarrollo
+groupadd -r servicio
+
+Eliminar grupos
+groupdel desarrollo
+
+Modificar grupos
+groupmod -n nuevo_nombre desarrollo
+groupmod -g 2000 desarrollo
+
+Añadir usuarios a grupos
+usermod -aG desarrollo juan
+
+Ver información de grupos
+groups juan
+getent group desarrollo
+
+2.4. PERMISOS DE SUPERUSUARIO (sudo)
+Ejecutar un comando como root
+sudo apt update
+
+Ejecutar como otro usuario
+sudo -u www-data ls /var/www
+
+Shell como root
+sudo -s
+
+Editar sudoers
+
+Siempre con:
+
+sudo visudo
+
+Ejemplos de reglas sudo
+
+Permiso total:
+
+juan ALL=(ALL) ALL
+
+
+Permitir solo apagar el sistema:
+
+carlos ALL=(ALL) /sbin/shutdown
+
+
+Grupo completo:
+
+%admin ALL=(ALL) ALL
+
+Sin contraseña
+juan ALL=(ALL) NOPASSWD: /usr/bin/systemctl restart apache2
+
+2.5. SEGURIDAD Y GESTIÓN DE CUENTAS
+Cambiar contraseña
+passwd juan
+
+Caducidad de contraseñas
+Ver configuración:
+chage -l juan
+
+Configurar días:
+chage -M 60 juan   # expira cada 60 días
+chage -E 2024-07-30 juan  # expira el 30/07
+
+Bloquear cuenta
+usermod -L juan
+
+Desbloquear
+usermod -U juan
+
+2.6. GESTIÓN DE PROCESOS
+Listar procesos
+ps
+ps aux
+ps -u juan
+top
+htop
+
+Ver árbol de procesos
+pstree
+pstree -p
+
+Filtrar procesos
+ps aux | grep firefox
+pgrep firefox
+
+Matar procesos
+kill PID
+kill -9 PID
+pkill firefox
+
+Prioridad de procesos
+Ver prioridad
+ps -o pid,ni,cmd
+
+Cambiar prioridad
+nice -n 10 comando
+renice -n -5 -p PID
+
+2.7. SERVICIOS Y DEMONIOS (systemd)
+Comandos esenciales
+
+Start:
+
+systemctl start nginx
+
+
+Stop:
+
+systemctl stop nginx
+
+
+Enable:
+
+systemctl enable nginx
+
+
+Disable:
+
+systemctl disable nginx
+
+
+Status:
+
+systemctl status nginx
+
+
+Ver todos los servicios:
+
+systemctl list-units --type=service
+
+2.8. CRON Y TAREAS PROGRAMADAS
+Editar crontab
+crontab -e
+
+Ver crontab
+crontab -l
+
+Sintaxis crontab
+* * * * * comando
+
+
+Campos:
+minuto – hora – día del mes – mes – día de la semana
+
+Ejemplos:
+0 2 * * 1 tar -czvf backup.tar.gz /home
+*/2 * * * * script.sh
+15 21 * * 5 shutdown -h now
+
+2.9. AT (tareas puntuales)
+
+Crear tarea:
+
+at 18:00
+
+
+Ver tareas:
+
+atq
+
+
+Eliminar tareas:
+
+atrm 3
