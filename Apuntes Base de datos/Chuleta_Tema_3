@@ -1,0 +1,268 @@
+Unidad 3 – Paso de Modelo Relacional a Modelo Físico
+1. Introducción al Modelo Físico
+
+El modelo físico de una base de datos representa cómo se almacenan, organizan y acceden los datos en un sistema de almacenamiento real (discos, sistemas distribuidos, etc.). Lleva a la práctica lo diseñado en el modelo lógico mediante tablas, tipos de datos, índices, particiones, gestión del espacio y mecanismos que permiten optimizar la eficiencia.
+
+Mientras que el modelo lógico es abstracto, el modelo físico se orienta a la optimización técnica: rendimiento, uso del espacio, integridad y eficiencia.
+
+Un diseño físico robusto garantiza que la base de datos funcione correctamente y al mismo tiempo maneje grandes volúmenes de datos con recursos óptimos.
+
+1.1. Definición del Modelo Físico
+
+El modelo físico describe cómo los datos del modelo lógico se implementan en un SGBD:
+
+Tablas físicas
+Las entidades del modelo lógico se convierten en tablas almacenadas en disco.
+
+Tipos de datos específicos
+En el modelo físico se eligen tipos concretos: INT4, INT8, BLOB, TEXT, etc.
+
+Índices
+Se deciden las columnas a indexar para acelerar consultas.
+
+Particiones y segmentación
+Permiten dividir grandes tablas entre discos o nodos.
+
+Gestión del espacio
+Define bloques, páginas y técnicas para minimizar fragmentación.
+
+1.2. Diferencias entre Modelo Relacional y Modelo Físico
+Modelo Relacional	Modelo Físico
+Describe datos de forma lógica y abstracta.	Describe datos a nivel de almacenamiento concreto.
+Define tablas y relaciones conceptuales.	Define páginas, bloques, particiones, índices.
+No considera hardware.	Depende del SGBD y hardware.
+Enfatiza relaciones y normalización.	Enfatiza rendimiento, espacio y eficiencia.
+1.3. Elementos Clave del Diseño Físico
+
+Tablas
+Representación física de entidades, organizadas en páginas de disco.
+
+Tipos de datos
+Se seleccionan tipos estrictos y optimizados para espacio y rendimiento.
+
+Índices
+Estructuras que aceleran búsquedas.
+
+Espacio de almacenamiento
+Definición de asignación de bloques, crecimiento y compresión.
+
+Claves y restricciones
+Implementadas físicamente para garantizar integridad.
+
+2. Transformación de Tablas a Estructura Física
+
+Consiste en crear tablas, definir sus columnas, tipos de datos y restricciones en un SGBD real (MySQL en este caso).
+
+2.1. Implementación de Tablas en MySQL
+
+Sintaxis básica:
+
+CREATE TABLE nombre_tabla (
+    nombre_columna tipo_de_dato [restricciones],
+    ...,
+    PRIMARY KEY (columna),
+    FOREIGN KEY (columna) REFERENCES otra_tabla(columna)
+);
+
+
+Ejemplo:
+
+CREATE TABLE Empleados (
+    id_empleado INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL,
+    fecha_nacimiento DATE,
+    salario DECIMAL(10, 2),
+    id_departamento INT,
+    FOREIGN KEY (id_departamento) REFERENCES Departamentos(id_departamento)
+);
+
+2.2. Tipos de Datos y Asignación de Espacio en MySQL
+Tipos Numéricos
+
+TINYINT, SMALLINT, MEDIUMINT
+
+INT (4 bytes)
+
+BIGINT (8 bytes)
+
+DECIMAL(m,n)
+
+FLOAT, DOUBLE
+
+Tipos de Fecha y Hora
+
+DATE
+
+DATETIME
+
+TIMESTAMP (limitado al año 2038)
+
+TIME
+
+YEAR
+
+Tipos de Texto
+
+CHAR(n)
+
+VARCHAR(n)
+
+TEXT / TINYTEXT / MEDIUMTEXT / LONGTEXT
+
+Tipos Binarios
+
+BLOB / TINYBLOB / MEDIUMBLOB / LONGBLOB
+
+Ejemplo:
+
+CREATE TABLE Productos (
+    id_producto INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_producto VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(7, 2),
+    stock INT DEFAULT 0
+);
+
+3. Gestión de Restricciones y Claves
+3.1. Claves Primarias (PK)
+
+Características:
+
+Únicas.
+
+No permiten valores NULL.
+
+Ejemplo:
+
+CREATE TABLE Departamentos (
+    id_departamento INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_departamento VARCHAR(100) NOT NULL
+);
+
+Claves Externas (FK)
+
+Permiten relacionar tablas y mantener integridad referencial.
+
+Ejemplo:
+
+CREATE TABLE Empleados (
+    id_empleado INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    id_departamento INT,
+    FOREIGN KEY (id_departamento)
+        REFERENCES Departamentos(id_departamento)
+        ON DELETE CASCADE
+);
+
+3.2. Restricciones de Integridad
+
+NOT NULL
+
+UNIQUE
+
+CHECK
+
+DEFAULT
+
+Ejemplo combinado:
+
+CREATE TABLE Empleados (
+    id_empleado INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    salario DECIMAL(10,2) CHECK (salario > 0),
+    correo_electronico VARCHAR(100) UNIQUE,
+    id_departamento INT,
+    FOREIGN KEY (id_departamento) REFERENCES Departamentos(id_departamento)
+);
+
+4. Inserción de Datos en MySQL
+4.1. Tipos de inserciones
+4.1.1. Inserción simple
+INSERT INTO Empleados (nombre, apellido, salario)
+VALUES ('Juan', 'Pérez', 3000);
+
+4.1.2. Inserción múltiple (por lotes)
+INSERT INTO Empleados (nombre, apellido, salario)
+VALUES 
+('Ana', 'López', 3500),
+('Carlos', 'García', 2800),
+('Lucía', 'Martínez', 4500);
+
+4.1.3. Inserciones condicionales
+
+INSERT IGNORE
+
+INSERT IGNORE INTO Empleados (id_empleado, nombre)
+VALUES (1, 'María');
+
+
+ON DUPLICATE KEY UPDATE
+
+INSERT INTO Empleados (id_empleado, salario)
+VALUES (1, 3200)
+ON DUPLICATE KEY UPDATE salario = 3500;
+
+5. Optimización con Índices
+5.1. Índices simples y compuestos
+CREATE INDEX idx_nombre_producto ON Productos(nombre_producto);
+CREATE INDEX idx_nombre_precio ON Productos(nombre_producto, precio);
+
+5.2. Ventajas y Desventajas
+
+Ventajas:
+
+Consultas más rápidas.
+
+Desventajas:
+
+Ralentizan inserciones y actualizaciones.
+
+Consumen espacio adicional.
+
+5.3. Índices Únicos y FullText
+
+UNIQUE:
+
+CREATE UNIQUE INDEX idx_correo_unico ON Empleados(correo_electronico);
+
+
+FULLTEXT:
+
+CREATE FULLTEXT INDEX idx_descripcion ON Productos(descripcion);
+
+6. Consultas en MySQL
+6.1. SELECT
+SELECT nombre, apellido FROM Empleados;
+
+6.2. FROM
+SELECT * FROM Departamentos;
+
+6.3. WHERE
+SELECT nombre, salario 
+FROM Empleados 
+WHERE salario > 3000;
+
+6.4. ORDER BY
+SELECT nombre, salario
+FROM Empleados
+ORDER BY salario DESC;
+
+6.5. Combinado
+SELECT nombre, apellido, salario
+FROM Empleados
+WHERE salario > 3000
+ORDER BY apellido ASC;
+
+Glosario de comandos SQL
+
+Finaliza siempre tus sentencias con ;.
+
+Puedes ejecutar comandos uno a uno o mediante un archivo .sql.
+
+Mayúsculas para nombres de tablas, minúsculas para columnas (recomendado).
+
+Antes de crear tablas:
+
+CREATE DATABASE nombre;
+USE nombre;

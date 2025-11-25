@@ -1,0 +1,323 @@
+1. <ol> – Lista ordenada
+
+Para qué sirve:
+Crear listas numeradas donde el orden importa.
+
+Ejemplo:
+
+<ol>
+  <li>Uno</li>
+  <li>Dos</li>
+</ol>
+
+2. Atributos de <ol>: type
+
+Para qué sirve:
+Cambiar la numeración (números, letras o romanos).
+
+Ejemplo:
+
+<ol type="A">
+  <li>Item</li>
+</ol>
+
+3. Atributos de <ol>: start
+
+Para qué sirve:
+Elegir desde qué número empieza la lista.
+
+Ejemplo:
+
+<ol start="5">
+  <li>Empieza en 5</li>
+</ol>
+
+4. <ul> – Lista no ordenada
+
+Para qué sirve:
+Crear listas con viñetas sin orden específico.
+
+Ejemplo:
+
+<ul>
+  <li>Item</li>
+</ul>
+
+5. CSS list-style-type
+
+Para qué sirve:
+Cambiar el estilo de las viñetas.
+
+Ejemplo:
+
+<ul style="list-style-type: square;">
+  <li>Cuadrado</li>
+</ul>
+
+6. <li> – Elemento de lista
+
+Para qué sirve:
+Representar un ítem dentro de una lista.
+
+Ejemplo:
+
+<li>Elemento</li>
+
+TABLAS HTML
+7. <table> – Tabla
+
+Para qué sirve:
+Crear una tabla.
+
+Ejemplo:
+
+<table></table>
+
+8. Atributo de CSS border en tabla
+
+Para qué sirve:
+Agregar borde a la tabla (forma moderna).
+
+Ejemplo:
+
+<table style="border:1px solid black;"></table>
+
+9. cellpadding
+
+Para qué sirve:
+Espacio interior de cada celda.
+
+Ejemplo:
+
+<table cellpadding="10"></table>
+
+10. cellspacing
+
+Para qué sirve:
+Espacio entre las celdas.
+
+Ejemplo:
+
+<table cellspacing="5"></table>
+
+11. <tr> – Fila
+
+Para qué sirve:
+Crear una fila en una tabla.
+
+Ejemplo:
+
+<tr></tr>
+
+12. <th> – Encabezado
+
+Para qué sirve:
+Crear un encabezado de columna o fila.
+
+Ejemplo:
+
+<th>Nombre</th>
+
+13. Atributo scope
+
+Para qué sirve:
+Mejorar accesibilidad indicando si el encabezado aplica a fila o columna.
+
+Ejemplo:
+
+<th scope="col">Nombre</th>
+
+14. <td> – Celda
+
+Para qué sirve:
+Agregar datos dentro de la tabla.
+
+Ejemplo:
+
+<td>Juan</td>
+
+15. colspan
+
+Para qué sirve:
+Una celda ocupa varias columnas.
+
+Ejemplo:
+
+<td colspan="2">Unido</td>
+
+16. rowspan
+
+Para qué sirve:
+Una celda ocupa varias filas.
+
+Ejemplo:
+
+<td rowspan="2">Unido</td>
+
+FORMULARIOS HTML
+17. <form>
+
+Para qué sirve:
+Contenedor del formulario.
+
+Ejemplo:
+
+<form action="/enviar"></form>
+
+18. action
+
+Para qué sirve:
+Define a dónde se envían los datos.
+
+Ejemplo:
+
+<form action="/procesar"></form>
+
+19. method
+
+Para qué sirve:
+Elegir entre GET o POST para enviar datos.
+
+Ejemplo:
+
+<form method="POST"></form>
+
+20. enctype
+
+Para qué sirve:
+Necesario para subir archivos.
+
+Ejemplo:
+
+<form enctype="multipart/form-data"></form>
+
+CAMPOS DE FORMULARIO
+21. <input type="text">
+
+Para qué sirve:
+Campo de texto.
+
+Ejemplo:
+
+<input type="text">
+
+22. <input type="password">
+
+Para qué sirve:
+Campo de contraseña oculto.
+
+Ejemplo:
+
+<input type="password">
+
+23. <input type="email">
+
+Para qué sirve:
+Campo que valida formato de correo.
+
+Ejemplo:
+
+<input type="email">
+
+24. <input type="checkbox">
+
+Para qué sirve:
+Casilla de selección múltiple.
+
+Ejemplo:
+
+<input type="checkbox">
+
+25. <input type="radio">
+
+Para qué sirve:
+Seleccionar una opción entre varias.
+
+Ejemplo:
+
+<input type="radio" name="opcion">
+
+26. <input type="file">
+
+Para qué sirve:
+Subir archivos.
+
+Ejemplo:
+
+<input type="file">
+
+27. <textarea>
+
+Para qué sirve:
+Caja de texto de varias líneas.
+
+Ejemplo:
+
+<textarea rows="4"></textarea>
+
+28. <button type="submit">
+
+Para qué sirve:
+Enviar el formulario.
+
+Ejemplo:
+
+<button type="submit">Enviar</button>
+
+29. <select> y <option>
+
+Para qué sirve:
+Menú desplegable.
+
+Ejemplo:
+
+<select>
+  <option>Opción</option>
+</select>
+
+30. <label>
+
+Para qué sirve:
+Asociar texto a un campo del formulario.
+
+Ejemplo:
+
+<label for="nombre">Nombre</label>
+<input id="nombre">
+
+VALIDACIONES HTML5
+31. required
+
+Para qué sirve:
+Campo obligatorio.
+
+Ejemplo:
+
+<input required>
+
+32. pattern
+
+Para qué sirve:
+Validar con expresión regular.
+
+Ejemplo:
+
+<input pattern="\d{10}">
+
+33. min / max
+
+Para qué sirve:
+Rango permitido en números.
+
+Ejemplo:
+
+<input type="number" min="18" max="60">
+
+34. minlength / maxlength
+
+Para qué sirve:
+Límite mínimo y máximo de caracteres.
+
+Ejemplo:
+
+<input minlength="2" maxlength="10">
